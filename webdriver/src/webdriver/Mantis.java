@@ -76,6 +76,8 @@ public class Mantis {
 	    driver.findElement(By.cssSelector("span.user-info")).click();
 	    driver.findElement(By.linkText("Salir")).click();
 	    */
+	    
+	    driver.close();
 	}
 	
 	public static void sleep(int seconds) {
