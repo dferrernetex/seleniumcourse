@@ -36,6 +36,11 @@
 	<td>//input[@value='=']</td>
 	<td></td>
 </tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=Display</td>
+	<td>4</td>
+</tr>
 
 </tbody></table>
 </body>
