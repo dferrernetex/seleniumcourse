@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://tester.com.es/login_page.php" />
+<title>crear_mantis_incidencia</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">crear_mantis_incidencia</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/login_page.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>curso-sele</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Iniciar sesión']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>sele-julio</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Iniciar sesión']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Reportar incidencia</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=category_id</td>
+	<td>label=incidencia</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=reproducibility</td>
+	<td>label=siempre</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=severity</td>
+	<td>label=bloqueo</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=priority</td>
+	<td>label=urgente</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=platform</td>
+	<td>W10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=os</td>
+	<td>W10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=os_build</td>
+	<td>W10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=handler_id</td>
+	<td>label=curso-sele</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=summary</td>
+	<td>DANIEL_ADAN_TEST Test1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>TEST 1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Enviar incidencia']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.user-info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Salir</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
