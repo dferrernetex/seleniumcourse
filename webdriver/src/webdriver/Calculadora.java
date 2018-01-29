@@ -8,35 +8,49 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Calculadora {
 
+	static WebDriver driver;// = new FirefoxDriver();
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		WebDriver driver = new FirefoxDriver();
+		//suma(2, 2);
+	    //resta(3, 2);
+	    verificarValor(suma(22, 33), 55);
+	}
+	
+	public static void launchDriver() {
+		if (driver == null) {
+			driver = new FirefoxDriver();
+		}
 		driver.get("http://calculadora.net");
-		
-		driver.findElement(By.xpath("//input[@value='2']")).click();
+	}
+	
+	public static void verificarValor(String result, int a) {
+	    String message = "Valores " + String.valueOf(a) + " --> " + String.valueOf(result);
+	    	createLog(message,  result.equalsIgnoreCase(String.valueOf(a)) );
+	}
+	
+	public static String suma(int a, int b) {
+		launchDriver();
+		clearOperations();
+		insertValue(a);
 	    driver.findElement(By.xpath("//input[@value='+']")).click();
-	    driver.findElement(By.xpath("//input[@value='2']")).click();
+	    insertValue(b);
 	    driver.findElement(By.xpath("//input[@value='=']")).click();
-	    try {
-	        assertEquals("4", driver.findElement(By.id("Display")).getAttribute("value"));
-	      } catch (Error e) {
-	        //verificationErrors.append(e.toString());
-	      }
+	    String web_result = driver.findElement(By.id("Display")).getAttribute("value");
 	    
-	    //limpiar operación
-	    driver.findElement(By.xpath("//input[@value='C']")).click();
-	    
-	    driver.findElement(By.xpath("//input[@value='3']")).click();
-	    driver.findElement(By.xpath("//input[@value='+']")).click();
-	    driver.findElement(By.xpath("//input[@value='3']")).click();
-	    driver.findElement(By.xpath("//input[@value='=']")).click();
-	    try {
-	        assertEquals("6", driver.findElement(By.id("Display")).getAttribute("value"));
-	      } catch (Error e) {
-	        //verificationErrors.append(e.toString());
-	      }
-	    
-	   
+	    return web_result;
+	}
+	
+	public static void clearOperations() {
+		driver.findElement(By.xpath("//input[@value='C']")).click();
+	}
+	
+	public static void insertValue(int value) {
+		driver.findElement(By.id("Display")).clear();
+	    driver.findElement(By.id("Display")).sendKeys( String.valueOf(value) );
+	}
+	
+	public static void createLog(String message, boolean ok) {
+		System.out.println((ok?"SUCCESS --> ":"FAIL --> ") +  message);
 	}
 	
 	
