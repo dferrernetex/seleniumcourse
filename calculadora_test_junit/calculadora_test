@@ -18,38 +18,18 @@ public class CalculadoraTest {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://tester.com.es/login_page.php";
+    baseUrl = "http://www.calculadora.net/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testCalculadora() throws Exception {
-    driver.get(baseUrl + "/login_page.php");
-    driver.findElement(By.id("username")).clear();
-    driver.findElement(By.id("username")).sendKeys("curso-sele");
-    driver.findElement(By.xpath("//input[@value='Iniciar sesión']")).click();
-    driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys("sele-julio");
-    driver.findElement(By.xpath("//input[@value='Iniciar sesión']")).click();
-    driver.findElement(By.linkText("Reportar incidencia")).click();
-    new Select(driver.findElement(By.id("category_id"))).selectByVisibleText("incidencia");
-    new Select(driver.findElement(By.id("reproducibility"))).selectByVisibleText("siempre");
-    new Select(driver.findElement(By.id("severity"))).selectByVisibleText("bloqueo");
-    new Select(driver.findElement(By.id("priority"))).selectByVisibleText("urgente");
-    driver.findElement(By.id("platform")).clear();
-    driver.findElement(By.id("platform")).sendKeys("W10");
-    driver.findElement(By.id("os")).clear();
-    driver.findElement(By.id("os")).sendKeys("W10");
-    driver.findElement(By.id("os_build")).clear();
-    driver.findElement(By.id("os_build")).sendKeys("W10");
-    new Select(driver.findElement(By.id("handler_id"))).selectByVisibleText("curso-sele");
-    driver.findElement(By.id("summary")).clear();
-    driver.findElement(By.id("summary")).sendKeys("DANIEL_ADAN_TEST Test1");
-    driver.findElement(By.id("description")).clear();
-    driver.findElement(By.id("description")).sendKeys("TEST 1");
-    driver.findElement(By.xpath("//input[@value='Enviar incidencia']")).click();
-    driver.findElement(By.cssSelector("span.user-info")).click();
-    driver.findElement(By.linkText("Salir")).click();
+    driver.get(baseUrl + "/");
+    driver.findElement(By.xpath("//input[@value='2']")).click();
+    driver.findElement(By.xpath("//input[@value='+']")).click();
+    driver.findElement(By.xpath("//input[@value='2']")).click();
+    driver.findElement(By.xpath("//input[@value='=']")).click();
+    assertEquals("4", driver.findElement(By.id("Display")).getAttribute("value"));
   }
 
   @After
