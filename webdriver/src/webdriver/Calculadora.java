@@ -26,6 +26,10 @@ public class Calculadora {
 		driver.get("http://calculadora.net");
 	}
 	
+	public static void closeDriver() {
+		driver.close();
+	}
+	
 	public static void verificarValor(String result, int a) {
 	    String message = "Valores " + String.valueOf(a) + " --> " + String.valueOf(result);
 	    	createLog(message,  result.equalsIgnoreCase(String.valueOf(a)) );
@@ -36,6 +40,18 @@ public class Calculadora {
 		clearOperations();
 		insertValue(a);
 	    driver.findElement(By.xpath("//input[@value='+']")).click();
+	    insertValue(b);
+	    driver.findElement(By.xpath("//input[@value='=']")).click();
+	    String web_result = driver.findElement(By.id("Display")).getAttribute("value");
+	    
+	    return web_result;
+	}
+	
+	public static String resta(int a, int b) {
+		launchDriver();
+		clearOperations();
+		insertValue(a);
+	    driver.findElement(By.xpath("//input[@value='-']")).click();
 	    insertValue(b);
 	    driver.findElement(By.xpath("//input[@value='=']")).click();
 	    String web_result = driver.findElement(By.id("Display")).getAttribute("value");

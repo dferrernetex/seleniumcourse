@@ -1,18 +1,18 @@
 package webdriver;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Driver {
 	
-	protected static RemoteWebDriver mdriver;
+	protected static WebDriver mdriver;
 	
 	public enum driver {
 		firefox, chrome
 	}
 	
-	public static RemoteWebDriver getDriver(driver driver) {
+	public static WebDriver getDriver(driver driver) {
 		if(mdriver != null) {
 			//TODO verificar tipo
 			return mdriver;
