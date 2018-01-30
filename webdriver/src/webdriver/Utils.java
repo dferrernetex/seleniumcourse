@@ -24,4 +24,8 @@ public class Utils {
 		}
 	}
 	
+	public static void createLog(String message, boolean ok) {
+		System.out.println((ok?"SUCCESS --> ":"FAIL --> ") +  message);
+	}
+	
 }
