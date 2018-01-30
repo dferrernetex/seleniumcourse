@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Calculadora {
@@ -14,11 +15,13 @@ public class Calculadora {
 		//suma(2, 2);
 	    //resta(3, 2);
 	    verificarValor(suma(22, 33), 55);
+	    
+	    driver.close();
 	}
 	
 	public static void launchDriver() {
 		if (driver == null) {
-			driver = new FirefoxDriver();
+			driver = new ChromeDriver(); //new FirefoxDriver();
 		}
 		driver.get("http://calculadora.net");
 	}
