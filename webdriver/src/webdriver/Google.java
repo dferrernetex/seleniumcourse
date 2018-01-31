@@ -20,7 +20,7 @@ public class Google {
 		
 		find(msearch, msearchURL);
 		
-		find(msearch, "https://www.amazon.es/ISTQB-Agile-Tester-One-English-ebook/dp/B00QT4FRJA");
+		find(msearch, "ISTQB");
 		
 		find(msearch, "gierhguefghgiiuub ehuigheriug");
 	}
@@ -31,9 +31,9 @@ public class Google {
 		driver = new FirefoxDriver();
 	    baseUrl = "http://www.bing.com/";
 		driver.get(baseUrl);
-		Utils.sleep(2);
+		Utils.sleep(1);
 		sendSearch(search);
-		Utils.sleep(2);
+		Utils.sleep(1);
 		numPage++;
 		
 		findSearch(searchURL);
@@ -41,24 +41,24 @@ public class Google {
 		driver.close();
 	}
 	
-	
-	
 	protected static void goToNextPage() {
 		driver.findElement(
-				//By.linkText("Siguiente")
 				By.className("sb_pagN")
 			).click();
-		Utils.sleep(2);
+		Utils.sleep(1);
 		numPage++;
 	}
 	
 	protected static void findSearch(String searchURL) {
 		String html = driver.findElement(By.tagName("body")).getAttribute("innerHTML");
 		
+		//Utils.createLog(html, true);
+		Utils.createLog("Pagina " + String.valueOf(numPage), true);
+		
 		if (html.contains(searchURL)) {
 			Utils.createLog("Encontrado en página: " + String.valueOf(numPage), true);
 		} else if (numPage < limitPages) {
-			Utils.createLog("No encontrado", false);
+			//Utils.createLog("No encontrado", false);
 			goToNextPage();
 			findSearch(searchURL);
 		} else {
